@@ -1,0 +1,1160 @@
+[
+    {
+        "id": "store_001",
+        "name": {
+            "ko": "에이랜드 명동",
+            "en": "ALAND Myeongdong",
+            "ja": "エーランド 明洞",
+            "zh": "ALAND 明洞"
+        },
+        "category": "multi-brand",
+        "style_tags": [
+            "streetwear",
+            "casual",
+            "korean-trendy"
+        ],
+        "price_range": {
+            "min": 15000,
+            "max": 150000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5636,
+            "lng": 126.9853,
+            "address": {
+                "ko": "서울 중구 명동8나길 27",
+                "en": "27 Myeongdong 8na-gil, Jung-gu, Seoul"
+            }
+        },
+        "area": "myeongdong",
+        "hours": {
+            "open": "11:00",
+            "close": "22:00",
+            "closed_days": []
+        },
+        "features": [
+            "fitting-room",
+            "tax-refund",
+            "english-staff"
+        ],
+        "popular_items": [
+            "oversized-tee",
+            "wide-pants",
+            "bucket-hat"
+        ],
+        "instagram": "@aland_official",
+        "rating": 4.3,
+        "image_url": "/images/stores/aland_myeongdong.jpg"
+    },
+    {
+        "id": "store_002",
+        "name": {
+            "ko": "탑텐 명동",
+            "en": "TOPTEN10 Myeongdong",
+            "ja": "TOPTEN10 明洞",
+            "zh": "TOPTEN10 明洞"
+        },
+        "category": "spa",
+        "style_tags": [
+            "basic",
+            "casual",
+            "minimal"
+        ],
+        "price_range": {
+            "min": 10000,
+            "max": 80000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5621,
+            "lng": 126.9848,
+            "address": {
+                "ko": "서울 중구 명동길 14",
+                "en": "14 Myeongdong-gil, Jung-gu, Seoul"
+            }
+        },
+        "area": "myeongdong",
+        "hours": {
+            "open": "10:30",
+            "close": "22:00",
+            "closed_days": []
+        },
+        "features": [
+            "fitting-room",
+            "tax-refund"
+        ],
+        "popular_items": [
+            "basic-tee",
+            "heattech",
+            "slacks"
+        ],
+        "instagram": "@topten10_official",
+        "rating": 4.1,
+        "image_url": "/images/stores/topten_myeongdong.jpg"
+    },
+    {
+        "id": "store_003",
+        "name": {
+            "ko": "스파오 명동",
+            "en": "SPAO Myeongdong",
+            "ja": "SPAO 明洞",
+            "zh": "SPAO 明洞"
+        },
+        "category": "spa",
+        "style_tags": [
+            "casual",
+            "young",
+            "collab"
+        ],
+        "price_range": {
+            "min": 15000,
+            "max": 90000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5615,
+            "lng": 126.9839,
+            "address": {
+                "ko": "서울 중구 명동8나길 15",
+                "en": "15 Myeongdong 8na-gil, Jung-gu, Seoul"
+            }
+        },
+        "area": "myeongdong",
+        "hours": {
+            "open": "11:00",
+            "close": "22:00",
+            "closed_days": []
+        },
+        "features": [
+            "fitting-room",
+            "tax-refund",
+            "english-staff"
+        ],
+        "popular_items": [
+            "pajamas",
+            "graphic-sweatshirt",
+            "denim"
+        ],
+        "instagram": "@spao_kr",
+        "rating": 4.2,
+        "image_url": "/images/stores/spao_myeongdong.jpg"
+    },
+    {
+        "id": "store_004",
+        "name": {
+            "ko": "자라 명동",
+            "en": "ZARA Myeongdong",
+            "ja": "ZARA 明洞",
+            "zh": "ZARA 明洞"
+        },
+        "category": "spa",
+        "style_tags": [
+            "chic",
+            "modern",
+            "trendy"
+        ],
+        "price_range": {
+            "min": 35000,
+            "max": 250000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5640,
+            "lng": 126.9835,
+            "address": {
+                "ko": "서울 중구 명동길 17",
+                "en": "17 Myeongdong-gil, Jung-gu, Seoul"
+            }
+        },
+        "area": "myeongdong",
+        "hours": {
+            "open": "10:30",
+            "close": "22:00",
+            "closed_days": []
+        },
+        "features": [
+            "fitting-room",
+            "tax-refund",
+            "english-staff"
+        ],
+        "popular_items": [
+            "blazer",
+            "dress",
+            "boots"
+        ],
+        "instagram": "@zara",
+        "rating": 4.0,
+        "image_url": "/images/stores/zara_myeongdong.jpg"
+    },
+    {
+        "id": "store_005",
+        "name": {
+            "ko": "H&M 명동",
+            "en": "H&M Myeongdong",
+            "ja": "H&M 明洞",
+            "zh": "H&M 明洞"
+        },
+        "category": "spa",
+        "style_tags": [
+            "casual",
+            "fashion",
+            "sustainable"
+        ],
+        "price_range": {
+            "min": 10000,
+            "max": 120000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5638,
+            "lng": 126.9829,
+            "address": {
+                "ko": "서울 중구 명동길 14",
+                "en": "14 Myeongdong-gil, Jung-gu, Seoul"
+            }
+        },
+        "area": "myeongdong",
+        "hours": {
+            "open": "10:30",
+            "close": "22:00",
+            "closed_days": []
+        },
+        "features": [
+            "fitting-room",
+            "tax-refund"
+        ],
+        "popular_items": [
+            "basics",
+            "hoodie",
+            "accessories"
+        ],
+        "instagram": "@hm",
+        "rating": 3.9,
+        "image_url": "/images/stores/hm_myeongdong.jpg"
+    },
+    {
+        "id": "store_006",
+        "name": {
+            "ko": "나이키 서울",
+            "en": "Nike Seoul",
+            "ja": "NIKE ソウル",
+            "zh": "NIKE 首尔"
+        },
+        "category": "sportswear",
+        "style_tags": [
+            "sporty",
+            "street",
+            "active"
+        ],
+        "price_range": {
+            "min": 45000,
+            "max": 300000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5631,
+            "lng": 126.9840,
+            "address": {
+                "ko": "서울 중구 명동길 14",
+                "en": "14 Myeongdong-gil, Jung-gu, Seoul"
+            }
+        },
+        "area": "myeongdong",
+        "hours": {
+            "open": "10:30",
+            "close": "22:00",
+            "closed_days": []
+        },
+        "features": [
+            "customization",
+            "fitting-room",
+            "tax-refund"
+        ],
+        "popular_items": [
+            "air-force-1",
+            "jordan",
+            "training-gear"
+        ],
+        "instagram": "@nikeseoul",
+        "rating": 4.5,
+        "image_url": "/images/stores/nike_seoul.jpg"
+    },
+    {
+        "id": "store_007",
+        "name": {
+            "ko": "아디다스 브랜드 센터",
+            "en": "Adidas Brand Center",
+            "ja": "アディダス ブランドセンター",
+            "zh": "Adidas 品牌中心"
+        },
+        "category": "sportswear",
+        "style_tags": [
+            "sporty",
+            "classic",
+            "originals"
+        ],
+        "price_range": {
+            "min": 39000,
+            "max": 250000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5628,
+            "lng": 126.9845,
+            "address": {
+                "ko": "서울 중구 명동8길 40",
+                "en": "40 Myeongdong 8-gil, Jung-gu, Seoul"
+            }
+        },
+        "area": "myeongdong",
+        "hours": {
+            "open": "11:00",
+            "close": "22:00",
+            "closed_days": []
+        },
+        "features": [
+            "fitting-room",
+            "tax-refund",
+            "collab-items"
+        ],
+        "popular_items": [
+            "superstar",
+            "tracksuit",
+            "gazelle"
+        ],
+        "instagram": "@adidas_kr",
+        "rating": 4.4,
+        "image_url": "/images/stores/adidas_myeongdong.jpg"
+    },
+    {
+        "id": "store_008",
+        "name": {
+            "ko": "ABC마트 그랜드스테이지 명동",
+            "en": "ABC Mart Grand Stage",
+            "ja": "ABCマート グランドステージ",
+            "zh": "ABC Mart Grand Stage"
+        },
+        "category": "shoes",
+        "style_tags": [
+            "sneakers",
+            "street",
+            "variety"
+        ],
+        "price_range": {
+            "min": 59000,
+            "max": 180000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5625,
+            "lng": 126.9850,
+            "address": {
+                "ko": "서울 중구 명동8길 3",
+                "en": "3 Myeongdong 8-gil, Jung-gu, Seoul"
+            }
+        },
+        "area": "myeongdong",
+        "hours": {
+            "open": "11:00",
+            "close": "22:00",
+            "closed_days": []
+        },
+        "features": [
+            "tax-refund",
+            "english-staff"
+        ],
+        "popular_items": [
+            "new-balance",
+            "vans",
+            "converse"
+        ],
+        "instagram": "@abcmartkr",
+        "rating": 4.1,
+        "image_url": "/images/stores/abcmart_myeongdong.jpg"
+    },
+    {
+        "id": "store_009",
+        "name": {
+            "ko": "믹쏘 명동",
+            "en": "MIXXO Myeongdong",
+            "ja": "MIXXO 明洞",
+            "zh": "MIXXO 明洞"
+        },
+        "category": "spa",
+        "style_tags": [
+            "feminine",
+            "office",
+            "casual"
+        ],
+        "price_range": {
+            "min": 29000,
+            "max": 110000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5620,
+            "lng": 126.9842,
+            "address": {
+                "ko": "서울 중구 명동8길 17",
+                "en": "17 Myeongdong 8-gil, Jung-gu, Seoul"
+            }
+        },
+        "area": "myeongdong",
+        "hours": {
+            "open": "10:30",
+            "close": "22:00",
+            "closed_days": []
+        },
+        "features": [
+            "fitting-room",
+            "tax-refund"
+        ],
+        "popular_items": [
+            "tweed-jacket",
+            "blouse",
+            "slacks"
+        ],
+        "instagram": "@mixxo_korea",
+        "rating": 4.0,
+        "image_url": "/images/stores/mixxo_myeongdong.jpg"
+    },
+    {
+        "id": "store_010",
+        "name": {
+            "ko": "에잇세컨즈 명동",
+            "en": "8seconds Myeongdong",
+            "ja": "8seconds 明洞",
+            "zh": "8seconds 明洞"
+        },
+        "category": "spa",
+        "style_tags": [
+            "korean-casual",
+            "trendy",
+            "basic"
+        ],
+        "price_range": {
+            "min": 19000,
+            "max": 99000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5629,
+            "lng": 126.9837,
+            "address": {
+                "ko": "서울 중구 명동길 32",
+                "en": "32 Myeongdong-gil, Jung-gu, Seoul"
+            }
+        },
+        "area": "myeongdong",
+        "hours": {
+            "open": "10:30",
+            "close": "22:00",
+            "closed_days": []
+        },
+        "features": [
+            "fitting-room",
+            "tax-refund"
+        ],
+        "popular_items": [
+            "padded-jacket",
+            "knitwear",
+            "denim"
+        ],
+        "instagram": "@8seconds_kr",
+        "rating": 4.2,
+        "image_url": "/images/stores/8seconds_myeongdong.jpg"
+    },
+    {
+        "id": "store_011",
+        "name": {
+            "ko": "원더플레이스 홍대",
+            "en": "Wonder Place Hongdae",
+            "ja": "ワンダープレイス 弘大",
+            "zh": "Wonder Place 弘大"
+        },
+        "category": "multi-brand",
+        "style_tags": [
+            "street",
+            "young",
+            "unique"
+        ],
+        "price_range": {
+            "min": 20000,
+            "max": 120000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5567,
+            "lng": 126.9234,
+            "address": {
+                "ko": "서울 마포구 양화로 176",
+                "en": "176 Yanghwa-ro, Mapo-gu, Seoul"
+            }
+        },
+        "area": "hongdae",
+        "hours": {
+            "open": "11:00",
+            "close": "22:30",
+            "closed_days": []
+        },
+        "features": [
+            "fitting-room",
+            "accessories",
+            "trendy"
+        ],
+        "popular_items": [
+            "crop-top",
+            "cargo-pants",
+            "beanie"
+        ],
+        "instagram": "@wonderplace_kr",
+        "rating": 4.3,
+        "image_url": "/images/stores/wonderplace_hongdae.jpg"
+    },
+    {
+        "id": "store_012",
+        "name": {
+            "ko": "무신사 스탠다드 홍대",
+            "en": "Musinsa Standard Hongdae",
+            "ja": "ムシンサスタンダード 弘大",
+            "zh": "Musinsa Standard 弘大"
+        },
+        "category": "spa",
+        "style_tags": [
+            "minimal",
+            "basic",
+            "clean"
+        ],
+        "price_range": {
+            "min": 19900,
+            "max": 150000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5552,
+            "lng": 126.9248,
+            "address": {
+                "ko": "서울 마포구 양화로 144",
+                "en": "144 Yanghwa-ro, Mapo-gu, Seoul"
+            }
+        },
+        "area": "hongdae",
+        "hours": {
+            "open": "11:00",
+            "close": "21:00",
+            "closed_days": []
+        },
+        "features": [
+            "fitting-room",
+            "pickup-locker",
+            "minimal-interior"
+        ],
+        "popular_items": [
+            "slacks",
+            "blazer",
+            "t-shirt"
+        ],
+        "instagram": "@musinsa_standard",
+        "rating": 4.6,
+        "image_url": "/images/stores/musinsa_hongdae.jpg"
+    },
+    {
+        "id": "store_013",
+        "name": {
+            "ko": "에이랜드 홍대",
+            "en": "ALAND Hongdae",
+            "ja": "エーランド 弘大",
+            "zh": "ALAND 弘大"
+        },
+        "category": "multi-brand",
+        "style_tags": [
+            "indie-brands",
+            "vintage-vibe",
+            "unique"
+        ],
+        "price_range": {
+            "min": 25000,
+            "max": 150000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5560,
+            "lng": 126.9230,
+            "address": {
+                "ko": "서울 마포구 양화로16길 29",
+                "en": "29 Yanghwa-ro 16-gil, Mapo-gu, Seoul"
+            }
+        },
+        "area": "hongdae",
+        "hours": {
+            "open": "11:00",
+            "close": "22:00",
+            "closed_days": []
+        },
+        "features": [
+            "thrift-section",
+            "fitting-room"
+        ],
+        "popular_items": [
+            "graphic-tee",
+            "unique-jacket",
+            "accessories"
+        ],
+        "instagram": "@aland_official",
+        "rating": 4.2,
+        "image_url": "/images/stores/aland_hongdae.jpg"
+    },
+    {
+        "id": "store_014",
+        "name": {
+            "ko": "엠플레이그라운드 홍대",
+            "en": "M Playground Hongdae",
+            "ja": "エムプレイグラウンド 弘大",
+            "zh": "M Playground 弘大"
+        },
+        "category": "street-shop",
+        "style_tags": [
+            "cheap",
+            "street",
+            "casual"
+        ],
+        "price_range": {
+            "min": 10000,
+            "max": 60000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5565,
+            "lng": 126.9240,
+            "address": {
+                "ko": "서울 마포구 어울마당로 94",
+                "en": "94 Eoulmadang-ro, Mapo-gu, Seoul"
+            }
+        },
+        "area": "hongdae",
+        "hours": {
+            "open": "11:00",
+            "close": "23:00",
+            "closed_days": []
+        },
+        "features": [
+            "bulk-buy",
+            "socks",
+            "accessories"
+        ],
+        "popular_items": [
+            "hoodie",
+            "jogger-pants",
+            "socks"
+        ],
+        "instagram": "@mplayground_official",
+        "rating": 4.0,
+        "image_url": "/images/stores/mplayground_hongdae.jpg"
+    },
+    {
+        "id": "store_015",
+        "name": {
+            "ko": "디스이즈네버댓 홍대",
+            "en": "thisisneverthat Hongdae",
+            "ja": "thisisneverthat 弘大",
+            "zh": "thisisneverthat 弘大"
+        },
+        "category": "brand",
+        "style_tags": [
+            "streetwear",
+            "hype",
+            "skate"
+        ],
+        "price_range": {
+            "min": 49000,
+            "max": 200000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5539,
+            "lng": 126.9213,
+            "address": {
+                "ko": "서울 마포구 잔다리로 32",
+                "en": "32 Jandari-ro, Mapo-gu, Seoul"
+            }
+        },
+        "area": "hongdae",
+        "hours": {
+            "open": "12:00",
+            "close": "21:00",
+            "closed_days": []
+        },
+        "features": [
+            "limited-edition",
+            "brand-showroom"
+        ],
+        "popular_items": [
+            "logo-sweatshirt",
+            "cap",
+            "jacket"
+        ],
+        "instagram": "@thisisneverthat",
+        "rating": 4.5,
+        "image_url": "/images/stores/thisisneverthat_hongdae.jpg"
+    },
+    {
+        "id": "store_016",
+        "name": {
+            "ko": "LMC 홍대",
+            "en": "LMC Hongdae",
+            "ja": "LMC 弘大",
+            "zh": "LMC 弘大"
+        },
+        "category": "brand",
+        "style_tags": [
+            "street",
+            "dark",
+            "graphic"
+        ],
+        "price_range": {
+            "min": 45000,
+            "max": 180000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5532,
+            "lng": 126.9218,
+            "address": {
+                "ko": "서울 마포구 잔다리로 27",
+                "en": "27 Jandari-ro, Mapo-gu, Seoul"
+            }
+        },
+        "area": "hongdae",
+        "hours": {
+            "open": "12:00",
+            "close": "21:00",
+            "closed_days": []
+        },
+        "features": [
+            "showroom",
+            "fitting-room"
+        ],
+        "popular_items": [
+            "graphic-tee",
+            "hoodie",
+            "bag"
+        ],
+        "instagram": "@lostmanagementcities",
+        "rating": 4.4,
+        "image_url": "/images/stores/lmc_hongdae.jpg"
+    },
+    {
+        "id": "store_017",
+        "name": {
+            "ko": "마르디 메크르디 홍대",
+            "en": "Mardi Mercredi Hongdae",
+            "ja": "Mardi Mercredi 弘大",
+            "zh": "Mardi Mercredi 弘大"
+        },
+        "category": "brand",
+        "style_tags": [
+            "french-casual",
+            "flower-logo",
+            "trendy"
+        ],
+        "price_range": {
+            "min": 45000,
+            "max": 150000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5518,
+            "lng": 126.9205,
+            "address": {
+                "ko": "서울 용산구 이태원로54길 58 (Hannam flagship ref)",
+                "en": "58 Itaewon-ro 54-gil, Yongsan-gu, Seoul"
+            }
+        },
+        "area": "hongdae",
+        "hours": {
+            "open": "11:00",
+            "close": "20:00",
+            "closed_days": [
+                "Monday"
+            ]
+        },
+        "features": [
+            "showroom",
+            "exclusive-items"
+        ],
+        "popular_items": [
+            "flower-sweatshirt",
+            "t-shirt"
+        ],
+        "instagram": "@mardi_mercredi_official",
+        "rating": 4.6,
+        "image_url": "/images/stores/mardi_hongdae.jpg"
+    },
+    {
+        "id": "store_018",
+        "name": {
+            "ko": "젠틀몬스터 홍대",
+            "en": "Gentle Monster Hongdae",
+            "ja": "ジェントルモンスター 弘大",
+            "zh": "Gentle Monster 弘大"
+        },
+        "category": "eyewear",
+        "style_tags": [
+            "avant-garde",
+            "luxury",
+            "art"
+        ],
+        "price_range": {
+            "min": 250000,
+            "max": 450000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5543,
+            "lng": 126.9221,
+            "address": {
+                "ko": "서울 마포구 독막로7길 54",
+                "en": "54 Dokmak-ro 7-gil, Mapo-gu, Seoul"
+            }
+        },
+        "area": "hongdae",
+        "hours": {
+            "open": "12:00",
+            "close": "21:00",
+            "closed_days": []
+        },
+        "features": [
+            "art-installations",
+            "photo-spot"
+        ],
+        "popular_items": [
+            "sunglasses",
+            "glasses"
+        ],
+        "instagram": "@gentlemonster",
+        "rating": 4.7,
+        "image_url": "/images/stores/gentlemonster_hongdae.jpg"
+    },
+    {
+        "id": "store_019",
+        "name": {
+            "ko": "무신사 스탠다드 강남",
+            "en": "Musinsa Standard Gangnam",
+            "ja": "ムシンサスタンダード 江南",
+            "zh": "Musinsa Standard 江南"
+        },
+        "category": "spa",
+        "style_tags": [
+            "minimal",
+            "basic",
+            "office"
+        ],
+        "price_range": {
+            "min": 19900,
+            "max": 150000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5028,
+            "lng": 127.0261,
+            "address": {
+                "ko": "서울 서초구 강남대로 431",
+                "en": "431 Gangnam-daero, Seocho-gu, Seoul"
+            }
+        },
+        "area": "gangnam",
+        "hours": {
+            "open": "11:00",
+            "close": "21:00",
+            "closed_days": []
+        },
+        "features": [
+            "pickup-locker",
+            "large-fitting-room"
+        ],
+        "popular_items": [
+            "slacks",
+            "suit-set",
+            "knit"
+        ],
+        "instagram": "@musinsa_standard",
+        "rating": 4.6,
+        "image_url": "/images/stores/musinsa_gangnam.jpg"
+    },
+    {
+        "id": "store_020",
+        "name": {
+            "ko": "자라 강남",
+            "en": "ZARA Gangnam",
+            "ja": "ZARA 江南",
+            "zh": "ZARA 江南"
+        },
+        "category": "spa",
+        "style_tags": [
+            "chic",
+            "modern",
+            "formal"
+        ],
+        "price_range": {
+            "min": 49000,
+            "max": 300000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5035,
+            "lng": 127.0255,
+            "address": {
+                "ko": "서울 강남구 강남대로 442",
+                "en": "442 Gangnam-daero, Gangnam-gu, Seoul"
+            }
+        },
+        "area": "gangnam",
+        "hours": {
+            "open": "10:30",
+            "close": "22:00",
+            "closed_days": []
+        },
+        "features": [
+            "huge-store",
+            "kids-section"
+        ],
+        "popular_items": [
+            "structured-coat",
+            "blazer",
+            "dress"
+        ],
+        "instagram": "@zara",
+        "rating": 4.1,
+        "image_url": "/images/stores/zara_gangnam.jpg"
+    },
+    {
+        "id": "store_021",
+        "name": {
+            "ko": "나이키 강남",
+            "en": "Nike Gangnam",
+            "ja": "NIKE 江南",
+            "zh": "NIKE 江南"
+        },
+        "category": "sportswear",
+        "style_tags": [
+            "sporty",
+            "performance",
+            "lifestyle"
+        ],
+        "price_range": {
+            "min": 49000,
+            "max": 300000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5025,
+            "lng": 127.0250,
+            "address": {
+                "ko": "서울 강남구 강남대로 446",
+                "en": "446 Gangnam-daero, Gangnam-gu, Seoul"
+            }
+        },
+        "area": "gangnam",
+        "hours": {
+            "open": "10:30",
+            "close": "22:00",
+            "closed_days": []
+        },
+        "features": [
+            "custom-service",
+            "running-lab"
+        ],
+        "popular_items": [
+            "running-shoes",
+            "jordan",
+            "tech-fleece"
+        ],
+        "instagram": "@nikegangnam",
+        "rating": 4.5,
+        "image_url": "/images/stores/nike_gangnam.jpg"
+    },
+    {
+        "id": "store_022",
+        "name": {
+            "ko": "카카오프렌즈 강남",
+            "en": "Kakao Friends Gangnam",
+            "ja": "カカオフレンズ 江南",
+            "zh": "Kakao Friends 江南"
+        },
+        "category": "character",
+        "style_tags": [
+            "cute",
+            "character",
+            "gift"
+        ],
+        "price_range": {
+            "min": 5000,
+            "max": 50000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5018,
+            "lng": 127.0257,
+            "address": {
+                "ko": "서울 서초구 강남대로 429",
+                "en": "429 Gangnam-daero, Seocho-gu, Seoul"
+            }
+        },
+        "area": "gangnam",
+        "hours": {
+            "open": "10:30",
+            "close": "22:00",
+            "closed_days": []
+        },
+        "features": [
+            "cafe",
+            "photo-zone"
+        ],
+        "popular_items": [
+            "ryan-plush",
+            "pajamas",
+            "stationery"
+        ],
+        "instagram": "@kakaofriends_official",
+        "rating": 4.7,
+        "image_url": "/images/stores/kakao_gangnam.jpg"
+    },
+    {
+        "id": "store_023",
+        "name": {
+            "ko": "유니클로 강남",
+            "en": "Uniqlo Gangnam",
+            "ja": "ユニクロ 江南",
+            "zh": "Uniqlo 江南"
+        },
+        "category": "spa",
+        "style_tags": [
+            "basic",
+            "lifewear",
+            "functional"
+        ],
+        "price_range": {
+            "min": 12900,
+            "max": 129000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5010,
+            "lng": 127.0260,
+            "address": {
+                "ko": "서울 강남구 강남대로 408",
+                "en": "408 Gangnam-daero, Gangnam-gu, Seoul"
+            }
+        },
+        "area": "gangnam",
+        "hours": {
+            "open": "11:30",
+            "close": "21:30",
+            "closed_days": []
+        },
+        "features": [
+            "alteration",
+            "ut-me"
+        ],
+        "popular_items": [
+            "heattech",
+            "down-jacket",
+            "jeans"
+        ],
+        "instagram": "@uniqlokr",
+        "rating": 4.0,
+        "image_url": "/images/stores/uniqlo_gangnam.jpg"
+    },
+    {
+        "id": "store_024",
+        "name": {
+            "ko": "에잇세컨즈 강남",
+            "en": "8seconds Gangnam",
+            "ja": "8seconds 江南",
+            "zh": "8seconds 江南"
+        },
+        "category": "spa",
+        "style_tags": [
+            "trendy",
+            "korean-casual",
+            "colorful"
+        ],
+        "price_range": {
+            "min": 19900,
+            "max": 89900,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5015,
+            "lng": 127.0258,
+            "address": {
+                "ko": "서울 서초구 강남대로 407",
+                "en": "407 Gangnam-daero, Seocho-gu, Seoul"
+            }
+        },
+        "area": "gangnam",
+        "hours": {
+            "open": "10:30",
+            "close": "22:00",
+            "closed_days": []
+        },
+        "features": [
+            "fitting-room",
+            "large-selection"
+        ],
+        "popular_items": [
+            "skirt",
+            "cardigan",
+            "blouse"
+        ],
+        "instagram": "@8seconds_kr",
+        "rating": 4.1,
+        "image_url": "/images/stores/8seconds_gangnam.jpg"
+    },
+    {
+        "id": "store_025",
+        "name": {
+            "ko": "스파오 강남",
+            "en": "SPAO Gangnam",
+            "ja": "SPAO 江南",
+            "zh": "SPAO 江南"
+        },
+        "category": "spa",
+        "style_tags": [
+            "young",
+            "campus",
+            "basic"
+        ],
+        "price_range": {
+            "min": 19900,
+            "max": 69900,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5040,
+            "lng": 127.0248,
+            "address": {
+                "ko": "서울 강남구 강남대로 432",
+                "en": "432 Gangnam-daero, Gangnam-gu, Seoul"
+            }
+        },
+        "area": "gangnam",
+        "hours": {
+            "open": "11:00",
+            "close": "22:00",
+            "closed_days": []
+        },
+        "features": [
+            "character-collab",
+            "pajama-section"
+        ],
+        "popular_items": [
+            "pajamas",
+            "fleece",
+            "sweatshirt"
+        ],
+        "instagram": "@spao_kr",
+        "rating": 4.2,
+        "image_url": "/images/stores/spao_gangnam.jpg"
+    }
+]

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ChevronLeft, RefreshCw, Shirt, MapPin } from 'lucide-react';
 import { useApi } from '../hooks/useApi';
+import { API_BASE_URL } from '../api/apiClient';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 interface StyleItem {
@@ -227,14 +228,14 @@ const RecommendPage: React.FC = () => {
     const getItemImage = (item: StyleItem) => {
         if (item.image_url && item.image_url.startsWith('/api/')) {
             const gender = localStorage.getItem('hanmeot_gender') || '';
-            if (item.image_url.includes('?') && !item.image_url.includes('gender=')) {
-                return `${item.image_url}&gender=${gender}`;
-            }
-            return item.image_url;
+            const finalUrl = item.image_url.includes('?') && !item.image_url.includes('gender=')
+                ? `${item.image_url}&gender=${gender}`
+                : item.image_url;
+            return `${API_BASE_URL}${finalUrl}`;
         }
         const brand = (item as any).brand || item.store_name || '';
         const gender = localStorage.getItem('hanmeot_gender') || '';
-        return `/api/placeholder/image?text=${encodeURIComponent(item.name)}&brand=${encodeURIComponent(brand)}&w=400&h=400&gender=${gender}`;
+        return `${API_BASE_URL}/api/placeholder/image?text=${encodeURIComponent(item.name)}&brand=${encodeURIComponent(brand)}&w=400&h=400&gender=${gender}`;
     };
 
     if (!displayData) {

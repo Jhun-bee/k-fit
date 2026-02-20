@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ChevronLeft, Camera, Share2, MapPin, Loader2, Sparkles, Link, Heart } from 'lucide-react';
 import { useApi } from '../hooks/useApi';
+import { API_BASE_URL } from '../api/apiClient';
 import FittingMiniGame from '../components/FittingMiniGame';
 
 const FittingPage: React.FC = () => {
@@ -47,10 +48,15 @@ const FittingPage: React.FC = () => {
 
     const getItemImage = (item: any) => {
         if (item.displayImage) return item.displayImage;
-        if (item.image_url) return item.image_url;
+        if (item.image_url) {
+            if (item.image_url.startsWith('/api/')) {
+                return `${API_BASE_URL}${item.image_url}`;
+            }
+            return item.image_url;
+        }
         const brand = item.store_name || item.brand || '';
         const gender = localStorage.getItem('hanmeot_gender') || '';
-        return `/api/placeholder/image?text=${encodeURIComponent(item.name)}&brand=${encodeURIComponent(brand)}&w=400&h=400&gender=${gender}`;
+        return `${API_BASE_URL}/api/placeholder/image?text=${encodeURIComponent(item.name)}&brand=${encodeURIComponent(brand)}&w=400&h=400&gender=${gender}`;
     };
 
     const fileInputRef = useRef<HTMLInputElement>(null);

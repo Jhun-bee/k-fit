@@ -1,6 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api import style, fitting, stores, route
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+from app.api import style, fitting, stores, route, placeholder
 
 app = FastAPI(title="K-Fit API", version="0.1.0")
 
@@ -18,6 +23,7 @@ app.include_router(style.router, prefix="/api/style", tags=["style"])
 app.include_router(fitting.router, prefix="/api/fitting", tags=["fitting"])
 app.include_router(stores.router, prefix="/api/stores", tags=["stores"])
 app.include_router(route.router, prefix="/api/route", tags=["route"])
+app.include_router(placeholder.router, prefix="/api/placeholder", tags=["placeholder"])
 
 @app.get("/api/health")
 async def health_check():

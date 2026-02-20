@@ -1,16 +1,42 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import OnboardingPage from './pages/OnboardingPage';
-import StylePage from './pages/StylePage';
-import RecommendPage from './pages/RecommendPage';
-import FittingPage from './pages/FittingPage';
-import MapPage from './pages/MapPage';
-import RoutePage from './pages/RoutePage';
-import './i18n/i18n';
+import React, { Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import LoadingSpinner from './components/LoadingSpinner';
+import Header from './components/Header';
+import './i18n/config';
+
+// Lazy load pages
+const OnboardingPage = React.lazy(() => import('./pages/OnboardingPage'));
+const StylePage = React.lazy(() => import('./pages/StylePage'));
+const RecommendPage = React.lazy(() => import('./pages/RecommendPage'));
+const FittingPage = React.lazy(() => import('./pages/FittingPage'));
+const MapPage = React.lazy(() => import('./pages/MapPage'));
+const RoutePage = React.lazy(() => import('./pages/RoutePage'));
+
+const Layout = ({ children }: { children: React.ReactNode }) => {
+  const location = useLocation();
+  const showHeader = location.pathname !== '/';
+
+  return (
+    <div className="min-h-screen bg-gray-100 flex justify-center items-start pt-0 sm:pt-4 sm:pb-4">
+      {/* Mobile Container Limiter - Fixed width on desktop, full on mobile */}
+      <div className="w-full sm:max-w-[430px] bg-white h-screen sm:h-[800px] sm:rounded-[32px] sm:overflow-hidden shadow-2xl relative flex flex-col border-gray-200 sm:border">
+
+        {showHeader && <Header />}
+
+        <main className="flex-1 flex flex-col relative w-full overflow-y-auto overflow-x-hidden scrollbar-hide">
+          <Suspense fallback={<div className="h-full flex items-center justify-center min-h-[50vh]"><LoadingSpinner /></div>}>
+            {children}
+          </Suspense>
+        </main>
+      </div>
+    </div>
+  );
+};
 
 function App() {
   return (
     <Router>
-      <div className="max-w-md mx-auto min-h-screen bg-white shadow-xl overflow-hidden">
+      <Layout>
         <Routes>
           <Route path="/" element={<OnboardingPage />} />
           <Route path="/style" element={<StylePage />} />
@@ -18,8 +44,9 @@ function App() {
           <Route path="/fitting" element={<FittingPage />} />
           <Route path="/map" element={<MapPage />} />
           <Route path="/route" element={<RoutePage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </div>
+      </Layout>
     </Router>
   );
 }

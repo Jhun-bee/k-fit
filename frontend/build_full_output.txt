@@ -1,0 +1,5 @@
+
+> frontend-temp@0.0.0 build
+> tsc && vite build
+
+src/components/FittingMiniGame.tsx(37,19): error TS6133: 'pairs' is declared but its value is never read.

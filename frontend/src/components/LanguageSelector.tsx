@@ -8,23 +8,31 @@ const LanguageSelector: React.FC = () => {
         i18n.changeLanguage(lng);
     };
 
+    const currentLang = i18n.language;
+
     return (
-        <div className="flex gap-2">
+        <div className="flex gap-2 bg-white/50 backdrop-blur-md p-1 rounded-full border border-gray-200 shadow-sm">
             <button
                 onClick={() => changeLanguage('en')}
-                className={`px-2 py-1 rounded ${i18n.language === 'en' ? 'bg-primary text-white' : 'bg-gray-200'}`}
+                className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${currentLang === 'en' ? 'bg-primary text-white shadow-md' : 'text-gray-500 hover:text-black'}`}
             >
                 EN
             </button>
             <button
+                onClick={() => changeLanguage('ko')}
+                className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${currentLang === 'ko' ? 'bg-primary text-white shadow-md' : 'text-gray-500 hover:text-black'}`}
+            >
+                KO
+            </button>
+            <button
                 onClick={() => changeLanguage('ja')}
-                className={`px-2 py-1 rounded ${i18n.language === 'ja' ? 'bg-primary text-white' : 'bg-gray-200'}`}
+                className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${currentLang === 'ja' ? 'bg-primary text-white shadow-md' : 'text-gray-500 hover:text-black'}`}
             >
                 JA
             </button>
             <button
                 onClick={() => changeLanguage('zh')}
-                className={`px-2 py-1 rounded ${i18n.language === 'zh' ? 'bg-primary text-white' : 'bg-gray-200'}`}
+                className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${currentLang === 'zh' ? 'bg-primary text-white shadow-md' : 'text-gray-500 hover:text-black'}`}
             >
                 ZH
             </button>

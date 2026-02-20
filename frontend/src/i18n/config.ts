@@ -1,6 +1,5 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-
 import en from './en.json';
 import ja from './ja.json';
 import zh from './zh.json';
@@ -15,7 +14,7 @@ i18n
             zh: { translation: zh },
             ko: { translation: ko },
         },
-        lng: 'en', // default language
+        lng: 'en', // Default language
         fallbackLng: 'en',
         interpolation: {
             escapeValue: false,

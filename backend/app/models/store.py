@@ -40,3 +40,5 @@ class Store(BaseModel):
     instagram: str
     rating: float
     image_url: str
+    walk_minutes: Optional[int] = None
+    transit_minutes: Optional[int] = None

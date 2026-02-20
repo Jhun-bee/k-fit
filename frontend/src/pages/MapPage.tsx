@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ChevronLeft, MapPin, Sparkles } from 'lucide-react';
-import axios from 'axios';
+import apiClient from '../api/apiClient';
 
 declare global {
     interface Window {
@@ -153,7 +153,7 @@ const MapPage: React.FC = () => {
         const fetchStores = async () => {
             try {
                 const brandsToSearch = passedBrands.length > 0 ? passedBrands : ["MUSINSA Standard", "SPAO", "ALAND"];
-                const res = await axios.post('/api/stores/search', { brands: brandsToSearch });
+                const res = await apiClient.post('/api/stores/search', { brands: brandsToSearch });
                 const fetchedStores: StoreResult[] = res.data.stores;
                 setStores(fetchedStores);
 

@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
-import axios, { AxiosRequestConfig, AxiosError } from 'axios';
+import { AxiosRequestConfig, AxiosError } from 'axios';
+import apiClient from '../api/apiClient';
 
 interface UseApiResponse<T> {
     data: T | null;
@@ -17,7 +18,7 @@ export function useApi<T>(url: string, initialData: T | null = null): UseApiResp
         setLoading(true);
         setError(null);
         try {
-            const response = await axios(url, config);
+            const response = await apiClient(url, config);
             setData(response.data);
             return response.data;
         } catch (err) {

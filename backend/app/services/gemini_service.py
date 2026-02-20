@@ -88,35 +88,41 @@ Clothing items:
             
             # Prepare contents
             contents = [prompt, user_image]
+            logger.info(f"[gemini] Sending request to {self.model_name}. Prompt length: {len(prompt)}")
             
             # Add product images
             for pi in product_images:
-                # Create a Part object or blob
-                # google.generativeai supports dict for blob: {'mime_type': ..., 'data': ...}
                 contents.append({
                     "mime_type": pi["mime_type"],
                     "data": pi["bytes"]
                 })
             
             # Generate content
-            # Set timeout to 60s as requested
+            logger.info(f"[gemini] Calling generate_content with {len(contents)} parts (1 prompt, {len(contents)-1} images)")
             response = model.generate_content(
                 contents,
                 request_options={"timeout": 60}
             )
             
+            logger.info(f"[gemini] Response received. Parts: {len(response.parts) if hasattr(response, 'parts') else 'N/A'}")
+
             if not response.parts:
-                raise ValueError("No content generated from Gemini")
+                # Check for candidates/safety
+                if hasattr(response, "candidates") and response.candidates:
+                    finish_reason = response.candidates[0].finish_reason
+                    logger.warning(f"[gemini] No parts but candidate exists. Finish reason: {finish_reason}")
+                raise ValueError("No content generated from Gemini (Check safety filters)")
                 
             for part in response.parts:
                 if hasattr(part, "inline_data") and part.inline_data:
+                    logger.info(f"[gemini] Found image in response! Size: {len(part.inline_data.data)/1024:.1f}KB")
                     return base64.b64encode(part.inline_data.data).decode('utf-8')
                 
             if response.text:
-                logger.warning(f"Gemini returned text instead of image: {response.text}")
-                raise ValueError("Gemini returned text instead of image.")
+                logger.warning(f"[gemini] Gemini returned text instead of image: {response.text[:200]}...")
+                raise ValueError(f"Gemini returned text instead of image: {response.text[:100]}")
 
-            raise ValueError("No image found in Gemini response")
+            raise ValueError("No image found in Gemini response parts")
 
         except Exception as e:
             import traceback

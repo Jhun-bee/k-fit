@@ -39,24 +39,32 @@ class FittingService:
         start_time = time.time()
         
         # 1. Fetch Product Images
+        logger.info(f"[fitting] Starting image fetch for {len(outfit_items)} items")
         product_images = []
         for item in outfit_items:
             try:
                 item_name = item.get("name", "")
                 brand = item.get("store_name", "") or item.get("brand", "")
                 
+                logger.debug(f"[fitting] Fetching product image for: {brand} - {item_name}")
                 img_url = await self._get_product_image_url(item_name, brand)
                 if img_url:
                     img_bytes = await self._download_image_as_bytes(img_url)
                     if img_bytes:
+                        size_kb = len(img_bytes) / 1024
+                        logger.info(f"[fitting] Downloaded {item_name} image: {size_kb:.1f}KB")
                         product_images.append({
                             "name": item_name,
                             "bytes": img_bytes,
-                            "mime_type": "image/jpeg" # Assuming JPEG usually, or could detect from bytes/headers
+                            "mime_type": "image/jpeg"
                         })
+                else:
+                    logger.warning(f"[fitting] No image URL found for {item_name}")
             except Exception as e:
                 logger.error(f"[fitting] Failed to download product image for {item.get('name')}: {e}")
                 continue
+
+        logger.info(f"[fitting] Total product images ready: {len(product_images)}")
 
         if not product_images:
             logger.warning("[fitting] No product images downloaded, falling back to text-only")

@@ -8,15 +8,21 @@ logger = logging.getLogger(__name__)
 
 class FittingService:
     async def _download_image_as_bytes(self, url: str) -> bytes | None:
-        """URL에서 이미지를 다운로드해서 bytes로 반환"""
+        """URL에서 이미지를 다운로드해서 bytes로 반환 (User-Agent 추가)"""
         import httpx
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+            "Referer": "https://shopping.naver.com/"
+        }
         try:
-            async with httpx.AsyncClient(follow_redirects=True, timeout=10) as client:
-                resp = await client.get(url)
+            async with httpx.AsyncClient(follow_redirects=True, timeout=15) as client:
+                resp = await client.get(url, headers=headers)
                 if resp.status_code == 200:
                     return resp.content
+                else:
+                    print(f"[fitting] Download failed with status {resp.status_code} for {url}")
         except Exception as e:
-            logger.error(f"[fitting] Image download error: {e}")
+            print(f"[fitting] Image download error: {e}")
         return None
 
     async def _get_product_image_url(self, item_name: str, brand: str) -> str | None:
@@ -39,32 +45,32 @@ class FittingService:
         start_time = time.time()
         
         # 1. Fetch Product Images
-        logger.info(f"[fitting] Starting image fetch for {len(outfit_items)} items")
+        print(f"[fitting] Starting image fetch for {len(outfit_items)} items")
         product_images = []
         for item in outfit_items:
             try:
                 item_name = item.get("name", "")
                 brand = item.get("store_name", "") or item.get("brand", "")
                 
-                logger.debug(f"[fitting] Fetching product image for: {brand} - {item_name}")
+                print(f"[fitting] Fetching product image for: {brand} - {item_name}")
                 img_url = await self._get_product_image_url(item_name, brand)
                 if img_url:
                     img_bytes = await self._download_image_as_bytes(img_url)
                     if img_bytes:
                         size_kb = len(img_bytes) / 1024
-                        logger.info(f"[fitting] Downloaded {item_name} image: {size_kb:.1f}KB")
+                        print(f"[fitting] Downloaded {item_name} image: {size_kb:.1f}KB")
                         product_images.append({
                             "name": item_name,
                             "bytes": img_bytes,
                             "mime_type": "image/jpeg"
                         })
                 else:
-                    logger.warning(f"[fitting] No image URL found for {item_name}")
+                    print(f"[fitting] No image URL found for {item_name}")
             except Exception as e:
-                logger.error(f"[fitting] Failed to download product image for {item.get('name')}: {e}")
+                print(f"[fitting] Failed to download product image for {item.get('name')}: {e}")
                 continue
 
-        logger.info(f"[fitting] Total product images ready: {len(product_images)}")
+        print(f"[fitting] Total product images ready: {len(product_images)}")
 
         if not product_images:
             logger.warning("[fitting] No product images downloaded, falling back to text-only")
@@ -114,7 +120,7 @@ class FittingService:
             if str(e) == "rate_limited":
                 # Propagate specific message
                 raise e
-            logger.error(f"Fitting process failed: {e}")
+            print(f"Fitting process failed: {e}")
             raise e
 
     async def process_style_edit(self, user_image: str, command: str, language: str) -> FittingResponse:

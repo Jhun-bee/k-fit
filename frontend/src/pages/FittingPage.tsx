@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ChevronLeft, Camera, Share2, MapPin, Loader2, Sparkles, Link, Heart } from 'lucide-react';
+import { ChevronLeft, Camera, Share2, MapPin, Loader2, Sparkles, Link, Heart, AlertCircle } from 'lucide-react';
 import { useApi } from '../hooks/useApi';
 import { API_BASE_URL } from '../api/apiClient';
 import FittingMiniGame from '../components/FittingMiniGame';
@@ -61,12 +61,44 @@ const FittingPage: React.FC = () => {
 
     const fileInputRef = useRef<HTMLInputElement>(null);
 
+    const resizeImage = (base64Str: string, maxWidth = 800, maxHeight = 1000): Promise<string> => {
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.src = base64Str;
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                let width = img.width;
+                let height = img.height;
+
+                if (width > height) {
+                    if (width > maxWidth) {
+                        height *= maxWidth / width;
+                        width = maxWidth;
+                    }
+                } else {
+                    if (height > maxHeight) {
+                        width *= maxHeight / height;
+                        height = maxHeight;
+                    }
+                }
+
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx?.drawImage(img, 0, 0, width, height);
+                resolve(canvas.toDataURL('image/jpeg', 0.8)); // 0.8 quality
+            };
+        });
+    };
+
     const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (file) {
             const reader = new FileReader();
-            reader.onload = (ev) => {
-                setUserImage(ev.target?.result as string);
+            reader.onload = async (ev) => {
+                const b64 = ev.target?.result as string;
+                const compressed = await resizeImage(b64);
+                setUserImage(compressed);
             };
             reader.readAsDataURL(file);
         }
@@ -74,6 +106,7 @@ const FittingPage: React.FC = () => {
 
     const [retryMessage, setRetryMessage] = useState<string | null>(null);
     const [errorState, setErrorState] = useState<boolean>(false);
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
     const generateFit = async (retryCount = 0) => {
         if (!userImage) return;
@@ -125,7 +158,8 @@ const FittingPage: React.FC = () => {
                 }
             } else {
                 // Other errors
-                // alert(t('fitting.error_generic', 'Fitting failed. Please try again.'));
+                const detail = error.response?.data?.detail || error.message || 'Unknown error';
+                setErrorMessage(detail);
                 setErrorState(true);
             }
             setLoading(false);
@@ -253,7 +287,21 @@ const FittingPage: React.FC = () => {
                 <div className="w-full relative border-2 border-dashed border-gray-300 bg-gray-100 rounded-2xl overflow-hidden mb-6 flex items-center justify-center"
                     style={{ minHeight: '500px' }}>
 
-                    {loading ? (
+                    {errorState ? (
+                        <div className="w-full h-[500px] flex flex-col items-center justify-center bg-gray-50 p-6 text-center">
+                            <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mb-4">
+                                <AlertCircle className="w-8 h-8 text-red-500" />
+                            </div>
+                            <h3 className="text-lg font-bold text-gray-800 mb-2">{t('fitting.error_title', 'Fitting Failed')}</h3>
+                            <p className="text-sm text-gray-500 mb-6">{errorMessage || t('fitting.error_message', 'Something went wrong while processing your style.')}</p>
+                            <button
+                                onClick={() => { setErrorState(false); setErrorMessage(null); generateFit(); }}
+                                className="bg-[#FF2D78] text-white px-6 py-2.5 rounded-full font-bold shadow-lg hover:bg-pink-600 active:scale-95 transition-all text-sm"
+                            >
+                                {t('actions.retry', 'Try Again')}
+                            </button>
+                        </div>
+                    ) : loading ? (
                         <div className="flex flex-col items-center gap-3 py-10 w-full h-full justify-center bg-white/80">
                             <FittingMiniGame />
                             <div className="mt-4 flex flex-col items-center">

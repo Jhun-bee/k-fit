@@ -5,6 +5,7 @@ console.log("[apiClient] Using Base URL:", API_BASE_URL || "(relative)");
 
 const apiClient = axios.create({
     baseURL: API_BASE_URL,
+    timeout: 90000, // 90 seconds for AI processing
     headers: {
         'Content-Type': 'application/json',
     },

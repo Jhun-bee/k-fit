@@ -26,7 +26,7 @@ class GeminiService:
             image_data = base64.b64decode(image_b64)
             return Image.open(io.BytesIO(image_data))
         except Exception as e:
-            logger.error(f"Failed to decode base64 image: {e}")
+            print(f"Failed to decode base64 image: {e}")
             raise ValueError("Invalid image format")
 
     def virtual_try_on(self, user_image_b64: str, item_descriptions: List[str], product_images: List[dict] = [], language: str = "en") -> str:
@@ -96,7 +96,7 @@ Clothing items:
             
             # Prepare contents
             contents = [prompt, user_image]
-            logger.info(f"[gemini] Sending request to {self.model_name}. Prompt length: {len(prompt)}")
+            print(f"[gemini] Sending request to {self.model_name}. Prompt length: {len(prompt)}")
             
             # Add product images
             for pi in product_images:
@@ -106,39 +106,39 @@ Clothing items:
                 })
             
             # Generate content
-            logger.info(f"[gemini] Calling generate_content with {len(contents)} parts (1 prompt, {len(contents)-1} images)")
+            print(f"[gemini] Calling generate_content with {len(contents)} parts (1 prompt, {len(contents)-1} images)")
             response = model.generate_content(
                 contents,
                 request_options={"timeout": 60}
             )
             
-            logger.info(f"[gemini] Response received. Parts: {len(response.parts) if hasattr(response, 'parts') else 'N/A'}")
+            print(f"[gemini] Response received. Parts: {len(response.parts) if hasattr(response, 'parts') else 'N/A'}")
 
             if hasattr(response, "prompt_feedback") and response.prompt_feedback:
-                logger.info(f"[gemini] Prompt feedback: {response.prompt_feedback}")
+                print(f"[gemini] Prompt feedback: {response.prompt_feedback}")
 
             if not response.parts:
                 # Check for candidates/safety
                 if hasattr(response, "candidates") and response.candidates:
                     finish_reason = response.candidates[0].finish_reason
-                    logger.warning(f"[gemini] No parts but candidate exists. Finish reason: {finish_reason}")
+                    print(f"[gemini] No parts but candidate exists. Finish reason: {finish_reason}")
                 raise ValueError("No content generated from Gemini (Check safety filters)")
                 
             for part in response.parts:
                 if hasattr(part, "inline_data") and part.inline_data:
-                    logger.info(f"[gemini] Found image in response! Size: {len(part.inline_data.data)/1024:.1f}KB")
+                    print(f"[gemini] Found image in response! Size: {len(part.inline_data.data)/1024:.1f}KB")
                     return base64.b64encode(part.inline_data.data).decode('utf-8')
                 
             if response.text:
-                logger.warning(f"[gemini] Gemini returned text instead of image: {response.text[:200]}...")
+                print(f"[gemini] Gemini returned text instead of image: {response.text[:200]}...")
                 raise ValueError(f"Gemini returned text instead of image: {response.text[:100]}")
 
             raise ValueError("No image found in Gemini response parts")
 
         except Exception as e:
             import traceback
-            logger.error(f"Gemini virtual try-on failed: {e}")
-            logger.error(traceback.format_exc())
+            print(f"Gemini virtual try-on failed: {e}")
+            print(traceback.format_exc())
             raise e
 
     def style_edit(self, image_b64: str, edit_command: str, language: str) -> str:

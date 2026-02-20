@@ -55,6 +55,8 @@
         "retry_wait": "High traffic. Retrying...",
         "error_busy": "Server is busy. Please try again later.",
         "error_failed": "Fitting generation failed.",
+        "error_title": "Fitting Failed",
+        "error_message": "An error occurred during AI fitting. (Check safety filters or timeout)",
         "retry": "Try Again",
         "single_item": "Item Fit"
     },

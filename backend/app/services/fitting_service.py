@@ -78,13 +78,16 @@ class FittingService:
             for attempt in range(max_retries + 1):
                 try:
                     # Note: gemini_service calls are synchronous. 
-                    # We run in a thread to keep the loop async if needed, or just call directly.
-                    # Since we used await asyncio.sleep, let's keep it simple.
-                    generated_image_b64 = gemini_service.virtual_try_on(
-                        user_image, 
-                        item_descriptions, 
-                        product_images=product_images,
-                        language=language
+                    # We run in a thread to keep the loop async and prevent hangups.
+                    loop = asyncio.get_event_loop()
+                    generated_image_b64 = await loop.run_in_executor(
+                        None,
+                        lambda: gemini_service.virtual_try_on(
+                            user_image, 
+                            item_descriptions, 
+                            product_images=product_images,
+                            language=language
+                        )
                     )
                     break # Success
                 except Exception as e:
@@ -118,7 +121,12 @@ class FittingService:
         start_time = time.time()
         
         try:
-            generated_image_b64 = gemini_service.style_edit(user_image, command, language)
+            import asyncio
+            loop = asyncio.get_event_loop()
+            generated_image_b64 = await loop.run_in_executor(
+                None,
+                lambda: gemini_service.style_edit(user_image, command, language)
+            )
             
             processing_time = time.time() - start_time
             

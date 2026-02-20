@@ -78,12 +78,20 @@ Clothing items:
 {chr(10).join([f"- {desc} (no reference image, use best judgment)" for desc in item_descriptions if not any(p['name'] in desc for p in product_images)])} 
 """
             
+            # Standard safety settings to avoid accidental blocking of clothing/pose
+            safety_settings = [
+                {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
+                {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"},
+                {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT", "threshold": "BLOCK_NONE"},
+                {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_NONE"},
+            ]
+            
             # Ensure using a model that supports multimodal input (image+text)
             # Using gemini-3-pro-image-preview as requested
-            # Setting generation_config at model level to avoid unexpected keyword errors
             model = genai.GenerativeModel(
                 model_name=self.model_name,
-                generation_config={"response_modalities": ["TEXT", "IMAGE"], "temperature": 0.7}
+                generation_config={"response_modalities": ["TEXT", "IMAGE"], "temperature": 0.7},
+                safety_settings=safety_settings
             )
             
             # Prepare contents
@@ -105,6 +113,9 @@ Clothing items:
             )
             
             logger.info(f"[gemini] Response received. Parts: {len(response.parts) if hasattr(response, 'parts') else 'N/A'}")
+
+            if hasattr(response, "prompt_feedback") and response.prompt_feedback:
+                logger.info(f"[gemini] Prompt feedback: {response.prompt_feedback}")
 
             if not response.parts:
                 # Check for candidates/safety

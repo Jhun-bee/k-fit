@@ -131,9 +131,9 @@ const MapPage: React.FC = () => {
         const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
         const storeName = s.name.replace(/<b>|<\/b>/g, '');
         if (isMobile) {
-            window.location.href = `kakaomap://route?ep=${s.lat},${s.lng}&by=TAXI`;
+            window.location.href = `kakaomap://search?q=${encodeURIComponent(storeName)}&p=${s.lat},${s.lng}`;
         } else {
-            window.open(`https://map.kakao.com/link/to/${storeName},${s.lat},${s.lng}`);
+            window.open(s.kakaoLink || `https://map.kakao.com/link/search/${encodeURIComponent(storeName)}`);
         }
     };
 
@@ -305,11 +305,11 @@ const MapPage: React.FC = () => {
                                 <span className="text-xs font-black">T</span>
                                 <span className="text-[9px] uppercase tracking-tighter">Kakao</span>
                             </button>
-                            <a href={`https://www.google.com/maps/dir/?api=1&destination=${selectedStore.lat},${selectedStore.lng}&travelmode=transit`} target="_blank" rel="noreferrer" className="bg-white border border-gray-100 text-gray-700 font-bold py-3.5 rounded-2xl flex flex-col items-center justify-center active:scale-95 transition-all shadow-sm">
+                            <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selectedStore.name.replace(/<b>|<\/b>/g, ''))}`} target="_blank" rel="noreferrer" className="bg-white border border-gray-100 text-gray-700 font-bold py-3.5 rounded-2xl flex flex-col items-center justify-center active:scale-95 transition-all shadow-sm">
                                 <img src="https://www.google.com/favicon.ico" alt="G" className="w-4 h-4" />
                                 <span className="text-[9px] uppercase tracking-tighter">Google</span>
                             </a>
-                            <a href={selectedStore.naverLink} target="_blank" rel="noreferrer" className="bg-[#03C75A] text-white font-bold py-3.5 rounded-2xl flex flex-col items-center justify-center active:scale-95 transition-all shadow-sm">
+                            <a href={selectedStore.naverLink || `https://map.naver.com/v5/search/${encodeURIComponent(selectedStore.name.replace(/<b>|<\/b>/g, ''))}`} target="_blank" rel="noreferrer" className="bg-[#03C75A] text-white font-bold py-3.5 rounded-2xl flex flex-col items-center justify-center active:scale-95 transition-all shadow-sm">
                                 <span className="font-serif font-black">N</span>
                                 <span className="text-[9px] uppercase tracking-tighter">Naver</span>
                             </a>

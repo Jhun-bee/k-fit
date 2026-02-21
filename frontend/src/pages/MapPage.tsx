@@ -327,7 +327,7 @@ const MapPage: React.FC = () => {
                         <h3 className="text-3xl font-black text-black mb-4 break-keep">{selectedStore.name.replace(/<b>|<\/b>/g, '')}</h3>
                         <p className="text-xl font-bold text-gray-700 leading-relaxed break-keep">{selectedStore.address}</p>
                     </div>
-                    <button onClick={() => speakKorean(`${selectedStore.name.replace(/<b>|<\/b>/g, '')} 가주세요`)} className="bg-black text-white font-black px-10 py-5 rounded-full mb-10 flex items-center gap-3 shadow-xl active:scale-95 transition-all">
+                    <button onClick={() => speakKorean(`택시 기사님, 여기로 가주세요. ${selectedStore.name.replace(/<b>|<\/b>/g, '')}, ${selectedStore.address}`)} className="bg-black text-white font-black px-10 py-5 rounded-full mb-10 flex items-center gap-3 shadow-xl active:scale-95 transition-all">
                         <Sparkles className="w-5 h-5 text-yellow-400" />
                         {t('show_to_driver', '🔊 Korean Audio Guide')}
                     </button>

@@ -90,6 +90,8 @@ const MapPage: React.FC = () => {
             const sName = s.name.toLowerCase();
             const sBrand = s.brand.toLowerCase();
 
+            if (!iBrand) return false; // Prevent empty brand matching everything
+
             // 1. Direct match
             if (sName.includes(iBrand) || sBrand.includes(iBrand) || iBrand.includes(sBrand)) return true;
 

@@ -432,7 +432,12 @@ const FittingPage: React.FC = () => {
                     <button
                         onClick={() => {
                             const brands = [...new Set(targetItems.map((item: any) => item.store_name || item.brand || item.name))].filter(Boolean);
-                            navigate('/map', { state: { brands } });
+                            const itemsForMap = targetItems.map((item: any) => ({
+                                ...item,
+                                brand: item.store_name || item.brand || '',
+                                image: item.displayImage || item.image_url || getItemImage(item)
+                            }));
+                            navigate('/map', { state: { brands, items: itemsForMap } });
                         }}
                         className="w-full bg-[#FF2D78] text-white py-3 rounded-xl font-bold text-base flex items-center justify-center gap-2 shadow-md hover:bg-pink-600 transition-colors"
                     >

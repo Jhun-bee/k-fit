@@ -78,6 +78,8 @@ const MapPage: React.FC = () => {
     const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(null);
     const [showToast, setShowToast] = useState("");
     const [showTaxiModal, setShowTaxiModal] = useState(false);
+    const [showDeliveryModal, setShowDeliveryModal] = useState(false);
+    const [deliveryDate, setDeliveryDate] = useState("");
 
 
     const getDisplayName = (koreanName: string) => {
@@ -322,12 +324,18 @@ const MapPage: React.FC = () => {
 
                                     if (matchedItem) {
                                         return (
-                                            <div className="mt-3 bg-gray-50/80 rounded-2xl p-2.5 flex items-center gap-3 border border-gray-100">
-                                                <img src={matchedItem.image} alt={matchedItem.name} className="w-12 h-12 rounded-xl object-cover bg-white shadow-sm" />
-                                                <div className="flex-1 overflow-hidden">
-                                                    <p className="text-[10px] text-gray-400 font-bold uppercase">{t('map.looking_for', 'Looking for')}</p>
-                                                    <p className="text-sm font-bold text-gray-800 truncate">{matchedItem.name}</p>
+                                            <div className="mt-4 bg-gray-50/80 rounded-2xl p-3 flex flex-col gap-3 border border-gray-100 shadow-sm relative overflow-hidden">
+                                                <div className="flex items-center gap-3">
+                                                    <img src={matchedItem.image} alt={matchedItem.name} className="w-14 h-14 rounded-xl object-cover bg-white shadow-sm border border-gray-200" />
+                                                    <div className="flex-1 overflow-hidden">
+                                                        <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">{t('map.looking_for', 'Looking for')}</p>
+                                                        <p className="text-sm font-black text-gray-800 truncate mb-0.5">{matchedItem.name}</p>
+                                                        <p className="text-xs text-pink-500 font-bold">₩{matchedItem.price ? matchedItem.price.toLocaleString() : (matchedItem.price_range || '59,000')}</p>
+                                                    </div>
                                                 </div>
+                                                <button onClick={() => setShowDeliveryModal(true)} className="w-full bg-black text-white py-3 rounded-xl font-bold text-xs flex items-center justify-center gap-2 hover:bg-gray-800 active:scale-[0.98] transition-all shadow-md">
+                                                    <span className="text-sm">🏨</span> {t('map.order_hotel', 'Order to Hotel (Guaranteed Arrival)')}
+                                                </button>
                                             </div>
                                         );
                                     }
@@ -339,7 +347,8 @@ const MapPage: React.FC = () => {
                             </button>
                         </div>
 
-                        <div className="grid grid-cols-4 gap-2 mt-4">
+                        <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider mt-4 mb-2">{t('navigate', 'Navigate')}</p>
+                        <div className="grid grid-cols-4 gap-2">
                             <button onClick={() => setShowTaxiModal(true)} className="bg-gray-900 text-white font-bold py-3.5 rounded-2xl flex flex-col items-center justify-center active:scale-95 transition-all">
                                 <Sparkles className="w-4 h-4 text-yellow-400 mb-0.5" />
                                 <span className="text-[9px] uppercase tracking-tighter">Taxi</span>
@@ -377,6 +386,52 @@ const MapPage: React.FC = () => {
                     <button onClick={() => setShowTaxiModal(false)} className="text-gray-400 font-bold hover:text-gray-600 transition-colors uppercase tracking-widest text-sm">
                         {t('cancel', 'Close')}
                     </button>
+                </div>
+            )}
+
+            {/* Hotel Delivery Modal */}
+            {showDeliveryModal && selectedStore && (
+                <div className="fixed inset-0 bg-black/60 z-[100] p-4 flex flex-col items-center justify-end sm:justify-center animate-in fade-in duration-200">
+                    <div className="bg-white w-full max-w-sm rounded-t-3xl sm:rounded-3xl p-6 shadow-2xl animate-in slide-in-from-bottom-10">
+                        <div className="flex justify-between items-center mb-6">
+                            <h2 className="text-xl font-black text-gray-900 flex items-center gap-2">
+                                🏨 {t('hotel_delivery.title', 'Hotel Delivery')}
+                            </h2>
+                            <button onClick={() => setShowDeliveryModal(false)} className="text-gray-400 hover:text-gray-600 bg-gray-100 rounded-full p-2">
+                                &times;
+                            </button>
+                        </div>
+
+                        <div className="mb-5">
+                            <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('hotel_name', 'Search Hotel Name')}</label>
+                            <input type="text" placeholder="e.g., Lotte Hotel Seoul" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-pink-500 focus:outline-none transition-all" />
+                        </div>
+
+                        <div className="mb-6">
+                            <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('arrival_date', 'Guaranteed Arrival Date')}</label>
+                            <input type="date" value={deliveryDate} onChange={(e) => setDeliveryDate(e.target.value)} className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-pink-500 focus:outline-none transition-all" />
+                            <p className="text-[10px] text-pink-500 mt-2 font-medium flex items-center gap-1">
+                                <Sparkles className="w-3 h-3" /> {t('arrival_guarantee', 'We will ensure it arrives before you check in.')}
+                            </p>
+                        </div>
+
+                        <div className="bg-gray-50 p-4 rounded-xl mb-6 flex justify-between items-center border border-gray-100">
+                            <span className="text-sm text-gray-500 font-bold">{t('shipping_fee', 'Shipping')}</span>
+                            <span className="font-black text-gray-900">FREE</span>
+                        </div>
+
+                        <button
+                            onClick={() => {
+                                setShowDeliveryModal(false);
+                                setShowToast(t('order_success', 'Order confirmed! It will be delivered to your hotel.'));
+                            }}
+                            className="w-full bg-pink-500 text-white font-black py-4 rounded-xl shadow-lg hover:bg-pink-600 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+                            disabled={!deliveryDate}
+                            style={{ opacity: deliveryDate ? 1 : 0.5 }}
+                        >
+                            {t('confirm_order', 'Confirm Order')}
+                        </button>
+                    </div>
                 </div>
             )}
 

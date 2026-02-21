@@ -7,7 +7,7 @@ load_dotenv()
 
 from app.api import style, fitting, stores, route, placeholder
 
-app = FastAPI(title="K-Fit API", version="0.1.0")
+app = FastAPI(title="K-Fit API", version="0.2.0")
 
 origins = ["*"]
 
@@ -27,4 +27,4 @@ app.include_router(placeholder.router, prefix="/api/placeholder", tags=["placeho
 
 @app.get("/api/health")
 async def health_check():
-    return {"status": "ok", "version": "0.1.0"}
+    return {"status": "ok", "version": "0.2.0"}

@@ -46,6 +46,19 @@ const STORE_NAME_MAP: Record<string, string> = {
     "에잇세컨즈": "8SECONDS",
     "스파오": "SPAO",
     "키르시": "Kirsh",
+    "나이키": "Nike",
+    "아디다스": "Adidas",
+    "뉴발란스": "New Balance",
+    "자라": "ZARA",
+    "에이치앤엠": "H&M",
+    "탑텐": "TOPTEN10",
+    "유니클로": "UNIQLO",
+    "컨버스": "Converse",
+    "반스": "Vans",
+    "푸마": "PUMA",
+    "휠라": "FILA",
+    "슈펜": "SHOOPEN",
+    "에이비씨마트": "ABC Mart"
 };
 
 const MapPage: React.FC = () => {
@@ -290,6 +303,36 @@ const MapPage: React.FC = () => {
                                     <MapPin className="w-3.5 h-3.5 text-pink-500" />
                                     <span className="text-xs font-medium">{selectedStore.address}</span>
                                 </div>
+                                {(() => {
+                                    const matchedItem = items.find((it: any) => {
+                                        const iBrand = (it.brand || '').toLowerCase();
+                                        const sName = selectedStore.name.toLowerCase();
+                                        const sBrand = selectedStore.brand.toLowerCase();
+                                        if (!iBrand) return false;
+                                        if (sName.includes(iBrand) || sBrand.includes(iBrand) || iBrand.includes(sBrand)) return true;
+                                        for (const [kr, en] of Object.entries(STORE_NAME_MAP)) {
+                                            const krLow = kr.toLowerCase();
+                                            const enLow = en.toLowerCase();
+                                            if ((iBrand === enLow || iBrand === krLow) && (sName.includes(krLow) || sBrand.includes(krLow) || sName.includes(enLow))) {
+                                                return true;
+                                            }
+                                        }
+                                        return false;
+                                    });
+
+                                    if (matchedItem) {
+                                        return (
+                                            <div className="mt-3 bg-gray-50/80 rounded-2xl p-2.5 flex items-center gap-3 border border-gray-100">
+                                                <img src={matchedItem.image} alt={matchedItem.name} className="w-12 h-12 rounded-xl object-cover bg-white shadow-sm" />
+                                                <div className="flex-1 overflow-hidden">
+                                                    <p className="text-[10px] text-gray-400 font-bold uppercase">{t('map.looking_for', 'Looking for')}</p>
+                                                    <p className="text-sm font-bold text-gray-800 truncate">{matchedItem.name}</p>
+                                                </div>
+                                            </div>
+                                        );
+                                    }
+                                    return null;
+                                })()}
                             </div>
                             <button onClick={() => setSelectedStore(null)} className="w-8 h-8 flex items-center justify-center bg-gray-50 rounded-full text-gray-400 hover:text-gray-600">
                                 &times;

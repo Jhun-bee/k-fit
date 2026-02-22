@@ -22,6 +22,7 @@ uvicorn app.main:app --reload
 **Option 2: venv**
 ```bash
 cd backend
+
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt

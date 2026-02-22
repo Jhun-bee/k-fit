@@ -78,8 +78,14 @@ const OnboardingPage: React.FC = () => {
                 </div>
             </div>
 
-            <div className="text-xs text-gray-400 mt-8 mb-4 font-medium">
-                Discover Seoul's Best Fashion
+            <div className="flex flex-col items-center mt-6 mb-4 gap-2 animate-slide-up" style={{ animationDelay: '0.3s' }}>
+                <button
+                    onClick={() => navigate('/profile')}
+                    className="text-sm text-primary font-semibold underline underline-offset-4 hover:text-pink-600 transition-colors"
+                >
+                    ✨ {t('goal_ootd', 'Upload My OOTD & Get AI Analysis')}
+                </button>
+                <span className="text-xs text-gray-400">Discover Seoul's Best Fashion</span>
             </div>
         </div>
     );

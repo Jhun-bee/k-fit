@@ -11,6 +11,7 @@ const RecommendPage = React.lazy(() => import('./pages/RecommendPage'));
 const FittingPage = React.lazy(() => import('./pages/FittingPage'));
 const MapPage = React.lazy(() => import('./pages/MapPage'));
 const RoutePage = React.lazy(() => import('./pages/RoutePage'));
+const ProfilePage = React.lazy(() => import('./pages/ProfilePage'));
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
@@ -44,6 +45,7 @@ function App() {
           <Route path="/fitting" element={<FittingPage />} />
           <Route path="/map" element={<MapPage />} />
           <Route path="/route" element={<RoutePage />} />
+          <Route path="/profile" element={<ProfilePage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Layout>

@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2026-02-21
+
+### Added
+- **Frontend**: Added Hotel Delivery feature in `MapPage.tsx` with a modal for specifying dates and hotel destinations for foreign travelers.
+- **Frontend**: Upgraded the Store Map Card to display the image, name, and exact price of the specifically matched outfit item the user is looking for.
+- **Frontend**: Added deep-link translation to KakaoMap, Google Maps, and Naver Map route search so they map to specific store names instead of arbitrary coordinates.
+- **Frontend**: Extended bilingual store name mapping (`STORE_NAME_MAP`) to include global sports and fashion brands for better search coverage.
+- **Frontend**: Refined the `speakKorean` text-to-speech payload in the Taxi Modal to read both the store name and address in a smooth, taxi-friendly phrase.
+
 ## [0.2.0] - 2026-02-21
 
 ### Added

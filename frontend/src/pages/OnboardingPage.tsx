@@ -7,10 +7,8 @@ const OnboardingPage: React.FC = () => {
     const { t } = useTranslation();
     const navigate = useNavigate();
 
-    const handleGenderSelect = (selected: 'female' | 'male') => {
-        localStorage.setItem('hanmeot_gender', selected);
-        // Step 1 (Style Selection) is removed per request.
-        // Navigate directly to /style page.
+    const handleGoalSelect = (goal: 'k-fashion' | 'hanbok') => {
+        localStorage.setItem('hanmeot_goal', goal);
         setTimeout(() => navigate('/style'), 300);
     };
 
@@ -45,36 +43,36 @@ const OnboardingPage: React.FC = () => {
                 </div>
 
                 <div className="mb-4 text-center space-y-2 animate-slide-up">
-                    <h2 className="text-2xl font-bold text-gray-800">{t('welcome_title')}</h2>
-                    <p className="text-gray-500">{t('welcome_subtitle')}</p>
+                    <h2 className="text-2xl font-bold text-gray-800">{t('welcome_title', 'What is your fashion goal?')}</h2>
+                    <p className="text-gray-500">{t('welcome_subtitle', 'Choose your style journey for today')}</p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 w-full animate-slide-up" style={{ animationDelay: '0.1s' }}>
                     <button
-                        onClick={() => handleGenderSelect('female')}
+                        onClick={() => handleGoalSelect('k-fashion')}
                         className="relative aspect-[4/5] rounded-3xl overflow-hidden group transition-all duration-300 border-2 border-transparent hover:border-primary shadow-md hover:shadow-xl hover:scale-[1.02]"
                     >
                         <img
                             src="/onboarding_female.png"
-                            alt="Female Style"
+                            alt="Trendy K-Fashion"
                             className="absolute inset-0 w-full h-full object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-4">
-                            <span className="text-white font-bold text-xl">{t('gender_female')}</span>
+                            <span className="text-white font-bold text-lg leading-tight">{t('goal_kfashion', 'Trendy K-Fashion')}</span>
                         </div>
                     </button>
 
                     <button
-                        onClick={() => handleGenderSelect('male')}
+                        onClick={() => handleGoalSelect('hanbok')}
                         className="relative aspect-[4/5] rounded-3xl overflow-hidden group transition-all duration-300 border-2 border-transparent hover:border-primary shadow-md hover:shadow-xl hover:scale-[1.02]"
                     >
                         <img
                             src="/onboarding_male.png"
-                            alt="Male Style"
+                            alt="Tradition-core"
                             className="absolute inset-0 w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-4">
-                            <span className="text-white font-bold text-xl">{t('gender_male')}</span>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex flex-col justify-end p-4">
+                            <span className="text-white font-bold text-lg leading-tight">{t('goal_hanbok', 'Tradition-core & Hanbok')}</span>
                         </div>
                     </button>
                 </div>

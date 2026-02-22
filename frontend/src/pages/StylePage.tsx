@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Check, ChevronLeft } from 'lucide-react';
 
-const STYLES = ['Minimal', 'Street', 'Casual', 'Y2K', 'Romantic', 'Grunge', 'Athleisure', 'Business', 'Modern Hanbok', 'K-Culture', 'Tradition-core'];
+const K_FASHION_STYLES = ['Street', 'Casual', 'Minimal', 'Y2K', 'Grunge', 'Athleisure', 'Balletcore', 'Gorpcore'];
+const HANBOK_STYLES = ['Modern Hanbok', 'Tradition-core', 'K-Culture', 'Elegant', 'Classic', 'Romantic'];
 const COLORS = ['Black', 'White', 'Beige', 'Blue', 'Pink', 'Green', 'Red', 'Purple'];
 const OCCASIONS = [
     { id: 'Daily', label: 'Daily' },
@@ -21,6 +22,10 @@ const StylePage: React.FC = () => {
     const [budget, setBudget] = useState(150000);
     const [occasion, setOccasion] = useState('Daily');
     const [selectedColors, setSelectedColors] = useState<string[]>([]);
+    const [gender, setGender] = useState<'female' | 'male'>('female');
+
+    const goal = localStorage.getItem('hanmeot_goal') || 'k-fashion';
+    const availableStyles = goal === 'hanbok' ? HANBOK_STYLES : K_FASHION_STYLES;
 
     const toggleStyle = (style: string) => {
         if (selectedStyles.includes(style)) {
@@ -50,6 +55,7 @@ const StylePage: React.FC = () => {
             colors: selectedColors
         };
         localStorage.setItem('hanmeot_preferences', JSON.stringify(prefs));
+        localStorage.setItem('hanmeot_gender', gender);
 
         // Ensure state is clean before navigating
         navigate('/recommend');
@@ -72,11 +78,36 @@ const StylePage: React.FC = () => {
             <div className="flex-1 overflow-y-auto px-6 pt-4 pb-28 scrollbar-hide">
 
                 <div className="space-y-8">
+                    {/* 0. Gender Selection */}
+                    <section>
+                        <label className="font-bold block mb-3 text-sm text-gray-800">{t('style.gender', 'Gender')}</label>
+                        <div className="flex gap-4">
+                            <button
+                                onClick={() => setGender('female')}
+                                className={`flex-1 py-3 rounded-xl font-medium transition-all ${gender === 'female'
+                                    ? 'bg-primary text-white shadow-md'
+                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                    }`}
+                            >
+                                {t('gender_female', 'Female')}
+                            </button>
+                            <button
+                                onClick={() => setGender('male')}
+                                className={`flex-1 py-3 rounded-xl font-medium transition-all ${gender === 'male'
+                                    ? 'bg-primary text-white shadow-md'
+                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                    }`}
+                            >
+                                {t('gender_male', 'Male')}
+                            </button>
+                        </div>
+                    </section>
+
                     {/* 1. Keywords */}
                     <section>
                         <label className="font-bold block mb-3 text-sm text-gray-800">Keywords (Max 3)</label>
                         <div className="flex flex-wrap gap-2">
-                            {STYLES.map(style => (
+                            {availableStyles.map(style => (
                                 <button
                                     key={style}
                                     onClick={() => toggleStyle(style)}

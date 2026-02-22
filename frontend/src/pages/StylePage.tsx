@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Check, ChevronLeft } from 'lucide-react';
 
-const STYLES = ['Minimal', 'Street', 'Casual', 'Y2K', 'Romantic', 'Grunge', 'Athleisure', 'Business', 'Modern Hanbok', 'K-Culture'];
+const STYLES = ['Minimal', 'Street', 'Casual', 'Y2K', 'Romantic', 'Grunge', 'Athleisure', 'Business', 'Modern Hanbok', 'K-Culture', 'Tradition-core'];
 const COLORS = ['Black', 'White', 'Beige', 'Blue', 'Pink', 'Green', 'Red', 'Purple'];
 const OCCASIONS = [
     { id: 'Daily', label: 'Daily' },

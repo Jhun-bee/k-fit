@@ -1156,5 +1156,288 @@
         "instagram": "@spao_kr",
         "rating": 4.2,
         "image_url": "/images/stores/spao_gangnam.jpg"
+    },
+    {
+        "id": "store_028",
+        "name": {
+            "ko": "리슬 마포 홍대점",
+            "en": "LEESLE Hongdae",
+            "ja": "LEESLE 弘大",
+            "zh": "LEESLE 弘大"
+        },
+        "category": "hanbok",
+        "style_tags": [
+            "modern-hanbok",
+            "tradition-core",
+            "casual"
+        ],
+        "price_range": {
+            "min": 50000,
+            "max": 300000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5562,
+            "lng": 126.9238,
+            "address": {
+                "ko": "서울 마포구 동교로",
+                "en": "Donggyo-ro, Mapo-gu, Seoul"
+            }
+        },
+        "area": "hongdae",
+        "hours": {
+            "open": "11:00",
+            "close": "20:00",
+            "closed_days": [
+                "Monday"
+            ]
+        },
+        "features": [
+            "fitting-room",
+            "tax-refund"
+        ],
+        "popular_items": [
+            "cheollik-dress",
+            "jeogori-blouse",
+            "heorichima"
+        ],
+        "instagram": "@leesle",
+        "rating": 4.8,
+        "image_url": "/images/stores/leesle_hongdae.jpg"
+    },
+    {
+        "id": "store_029",
+        "name": {
+            "ko": "차이킴 삼청점",
+            "en": "TCHAI KIM Samcheong",
+            "ja": "TCHAI KIM 三清",
+            "zh": "TCHAI KIM 三清"
+        },
+        "category": "hanbok",
+        "style_tags": [
+            "modern-hanbok",
+            "tradition-core",
+            "elegant"
+        ],
+        "price_range": {
+            "min": 100000,
+            "max": 500000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5815,
+            "lng": 126.9820,
+            "address": {
+                "ko": "서울 종로구 삼청로",
+                "en": "Samcheong-ro, Jongno-gu, Seoul"
+            }
+        },
+        "area": "samcheong",
+        "hours": {
+            "open": "11:00",
+            "close": "19:00",
+            "closed_days": []
+        },
+        "features": [
+            "fitting-room",
+            "hotel-delivery",
+            "premium-service"
+        ],
+        "popular_items": [
+            "modern-hanbok",
+            "wrap-skirt",
+            "modern-dangui"
+        ],
+        "instagram": "@tchaikim_official",
+        "rating": 4.9,
+        "image_url": "/images/stores/tchaikim_samcheong.jpg"
+    },
+    {
+        "id": "store_030",
+        "name": {
+            "ko": "오우르 성수",
+            "en": "OUWR Seongsu",
+            "ja": "OUWR 聖水",
+            "zh": "OUWR 圣水"
+        },
+        "category": "hanbok",
+        "style_tags": [
+            "modern-hanbok",
+            "tradition-core",
+            "street"
+        ],
+        "price_range": {
+            "min": 60000,
+            "max": 250000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5446,
+            "lng": 127.0560,
+            "address": {
+                "ko": "서울 성동구 연무장길",
+                "en": "Yeonmujang-gil, Seongdong-gu, Seoul"
+            }
+        },
+        "area": "seongsu",
+        "hours": {
+            "open": "12:00",
+            "close": "20:00",
+            "closed_days": []
+        },
+        "features": [
+            "fitting-room",
+            "hotel-delivery",
+            "customization"
+        ],
+        "popular_items": [
+            "hanbok-pants",
+            "durumagi-coat",
+            "graphic-jeogori"
+        ],
+        "instagram": "@ouwr_official",
+        "rating": 4.7,
+        "image_url": "/images/stores/ouwr_seongsu.jpg"
+    },
+    {
+        "id": "store_031",
+        "name": {
+            "ko": "북촌자락 안국",
+            "en": "Bukchonzalak Anguk",
+            "ja": "Bukchonzalak 安国",
+            "zh": "Bukchonzalak 安国"
+        },
+        "category": "hanbok",
+        "style_tags": [
+            "modern-hanbok",
+            "tradition-core",
+            "daily"
+        ],
+        "price_range": {
+            "min": 40000,
+            "max": 150000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5790,
+            "lng": 126.9850,
+            "address": {
+                "ko": "서울 종로구 북촌로",
+                "en": "Bukchon-ro, Jongno-gu, Seoul"
+            }
+        },
+        "area": "bukchon",
+        "hours": {
+            "open": "10:00",
+            "close": "19:00",
+            "closed_days": []
+        },
+        "features": [
+            "fitting-room",
+            "affordable"
+        ],
+        "popular_items": [
+            "casual-hanbok-shirt",
+            "hanbok-pants",
+            "daily-skirts"
+        ],
+        "instagram": "@bukchonzalak_official",
+        "rating": 4.5,
+        "image_url": "/images/stores/bukchonzalak_anguk.jpg"
+    },
+    {
+        "id": "store_032",
+        "name": {
+            "ko": "다함 홍대",
+            "en": "DAHAM Hongdae",
+            "ja": "DAHAM 弘大",
+            "zh": "DAHAM 弘大"
+        },
+        "category": "hanbok",
+        "style_tags": [
+            "modern-hanbok",
+            "tradition-core",
+            "street",
+            "denim"
+        ],
+        "price_range": {
+            "min": 80000,
+            "max": 350000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5550,
+            "lng": 126.9220,
+            "address": {
+                "ko": "서울 마포구",
+                "en": "Mapo-gu, Seoul"
+            }
+        },
+        "area": "hongdae",
+        "hours": {
+            "open": "11:00",
+            "close": "20:00",
+            "closed_days": []
+        },
+        "features": [
+            "fitting-room"
+        ],
+        "popular_items": [
+            "denim-suit",
+            "jeogori-jacket",
+            "modern-hanbok"
+        ],
+        "instagram": "@daham_hanbok",
+        "rating": 4.6,
+        "image_url": "/images/stores/daham_hongdae.jpg"
+    },
+    {
+        "id": "store_033",
+        "name": {
+            "ko": "나뷰한복 북촌",
+            "en": "Navue Hanbok Bukchon",
+            "ja": "Navue Hanbok 北村",
+            "zh": "Navue Hanbok 北村"
+        },
+        "category": "hanbok",
+        "style_tags": [
+            "modern-hanbok",
+            "tradition-core",
+            "classic-mens"
+        ],
+        "price_range": {
+            "min": 100000,
+            "max": 400000,
+            "currency": "KRW"
+        },
+        "location": {
+            "lat": 37.5800,
+            "lng": 126.9830,
+            "address": {
+                "ko": "서울 종로구",
+                "en": "Jongno-gu, Seoul"
+            }
+        },
+        "area": "bukchon",
+        "hours": {
+            "open": "10:30",
+            "close": "19:00",
+            "closed_days": [
+                "Monday"
+            ]
+        },
+        "features": [
+            "fitting-room",
+            "mens-specialty",
+            "customization"
+        ],
+        "popular_items": [
+            "dopo",
+            "gat",
+            "traditional-suit"
+        ],
+        "instagram": "@navue.hanbok",
+        "rating": 4.8,
+        "image_url": "/images/stores/navue_bukchon.jpg"
     }
 ]
